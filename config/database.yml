@@ -1,0 +1,16 @@
+default: &default
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: db/s2_it_delivery_development.sqlite3
+
+test:
+  <<: *default
+  database: db/s2_it_delivery_test.sqlite3
+
+production:
+  <<: *default
+  database: db/s2_it_delivery_production.sqlite3
