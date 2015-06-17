@@ -1,7 +1,16 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+City.create([
+  { name: 'A' },
+  { name: 'B' },
+  { name: 'C' },
+  { name: 'D' },
+  { name: 'E' }
+])
+
+Route.create([
+  { from_id: 1, to_id: 2, distance: 10 },
+  { from_id: 2, to_id: 4, distance: 15 },
+  { from_id: 1, to_id: 3, distance: 20 },
+  { from_id: 3, to_id: 4, distance: 30 },
+  { from_id: 2, to_id: 5, distance: 50 },
+  { from_id: 4, to_id: 5, distance: 30 }
+])
