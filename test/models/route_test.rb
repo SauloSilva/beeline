@@ -30,4 +30,11 @@ class RouteTest < ActiveSupport::TestCase
     to = Route.first.to
     assert_kind_of City, to
   end
+
+  test 'should return Hash on shortest_path method' do
+    shortest_path = Route.shortest_path('A', 'C')
+    assert_kind_of Hash, shortest_path
+    assert_kind_of Array, shortest_path[:nodes]
+    assert_kind_of Fixnum, shortest_path[:distance]
+  end
 end
