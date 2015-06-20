@@ -1,19 +1,23 @@
 class City < ActiveRecord::Base
   attr_accessor :routes
 
-  validates :name, presence: true, uniqueness: true, format: { with: /\A[a-zA-Z]+\z/,
-    message: "only allows letters" }
+  validates :name, presence: true, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
+  validates :name, uniqueness: { scope: :map_id }
 
   belongs_to :map
   has_many :destinations, foreign_key: :from_id, dependent: :destroy, class_name: :Route do
     def to_format!
       self.map do |route|
-        [route.from.name, route.to.name, route.distance]
+        if route.from && route.to
+          [route.from.name, route.to.name, route.distance]
+        else
+          [route.from_name, route.to_name, route.distance]
+        end
       end
     end
   end
 
-  before_save :transform_name
+  before_validation :transform_name
   after_save :routes_save
 
   def self.all_destinations
@@ -46,6 +50,6 @@ class City < ActiveRecord::Base
   end
 
   def transform_name
-    self.name.capitalize!
+    name.capitalize! if name
   end
 end

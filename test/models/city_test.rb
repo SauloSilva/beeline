@@ -11,9 +11,14 @@ class CityTest < ActiveSupport::TestCase
     assert_not city.save
   end
 
-  test 'should not save city with same name' do
-    city = City.new(name: 'A')
+  test 'should not save city with same name with same map' do
+    city = City.new(name: 'A', map_name: 'SP')
     assert_not city.save
+  end
+
+  test 'should save city with same name with other map' do
+    city = City.new(name: 'A', map_name: 'RJ')
+    assert city.save
   end
 
   test 'should format destination of the first city' do
@@ -37,10 +42,10 @@ class CityTest < ActiveSupport::TestCase
   end
 
   test 'should delete all routes dependent' do
-    count = Route.count
+    routes_count = Route.count
     City.first.destroy
 
-    assert_not_equal count, Route.count
+    assert_not_equal routes_count, Route.count
   end
 
   test 'should create map when have map_name' do

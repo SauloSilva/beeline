@@ -31,6 +31,16 @@ class RouteTest < ActiveSupport::TestCase
     assert_kind_of City, to
   end
 
+  test 'should return from city name when is called from_name' do
+    city_name = Route.first.from_name
+    assert_equal city_name, City.find(Route.first.from_id).name
+  end
+
+  test 'should return from city name when is called to_name' do
+    city_name = Route.first.to_name
+    assert_equal city_name, City.find(Route.first.to_id).name
+  end
+
   test 'should return Hash on shortest_path method' do
     shortest_path = Route.shortest_path('A', 'C', 1, 1)
     assert_kind_of Hash, shortest_path
