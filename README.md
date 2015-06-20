@@ -52,13 +52,13 @@ Todos erros gerados por alguma requisição `POST`, `PUT` ou `DELETE`, estará n
   
   ```json
     {
-      nodes: [
+      "nodes": [
         "A",
         "B",
         "D"
       ],
-      distance: 25,
-      price: 6.25
+      "distance": 25,
+      "price": 6.25
     }
   ```
 
@@ -74,11 +74,11 @@ Todos erros gerados por alguma requisição `POST`, `PUT` ou `DELETE`, estará n
   
   ```json
     [{
-      name: "SP"
+      "name": "SP"
     }, {
-      name: "RJ"
+      "name": "RJ"
     }, {
-      name: "RS"
+      "name": "RS"
     }]
   ```
 
@@ -113,12 +113,12 @@ Todos erros gerados por alguma requisição `POST`, `PUT` ou `DELETE`, estará n
   ```json
     [
         {
-          name: "A",
-          routes: [
+          "name": "A",
+          "routes": [
             { to: "B", distance: 10 },
             { to: "C", distance: 20 }
           ],
-          map_name: "SP"
+          "map_name": "SP"
         }
     ]
   ```
@@ -131,7 +131,7 @@ Todos erros gerados por alguma requisição `POST`, `PUT` ou `DELETE`, estará n
   
   ```json
     {
-      destinations: [
+      "destinations": [
         ["A", "B", 10],
         ["A", "C", 20],
         ["B", "D", 15],
@@ -151,12 +151,12 @@ Todos erros gerados por alguma requisição `POST`, `PUT` ou `DELETE`, estará n
   
   ```json
     {
-      name: "A",
-      routes: [
+      "name": "A",
+      "routes": [
         { to: "B", distance: 10 },
         { to: "C", distance: 20 }
       ],
-      map_name: "SP"
+      "map_name": "SP"
     }
   ```
 
@@ -168,12 +168,12 @@ Todos erros gerados por alguma requisição `POST`, `PUT` ou `DELETE`, estará n
 
   ```json
     {
-      name: "A",
-      routes: [
+      "name": "A",
+      "routes": [
         { to: "B", distance: 10 },
         { to: "C", distance: 20 }
       ],
-      map_name: "SP"
+      "map_name": "SP"
     }
   ```
 
