@@ -1,11 +1,14 @@
 class Map < ActiveRecord::Base
-  has_many :cities, dependent: :destroy
+  validates :name, presence: true, uniqueness: true, format: { with: /\A[a-zA-Z]+\z/,
+    message: "only allows letters" }
 
-  before_save :transform_name
+  has_many :cities, dependent: :destroy, inverse_of: :map
+
+  before_validation :transform_name
 
   private
 
   def transform_name
-    self.name.upcase!
+    name.upcase! if name
   end
 end
