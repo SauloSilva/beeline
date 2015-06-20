@@ -1,6 +1,6 @@
 class CreateRoutes < ActiveRecord::Migration
   def change
-    create_table :routes, force: true, id: false do |t|
+    create_table :routes, force: true do |t|
       t.integer  :to_id, null: false
       t.integer  :from_id, null: false
       t.integer  :distance, null: false

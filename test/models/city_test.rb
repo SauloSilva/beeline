@@ -35,4 +35,37 @@ class CityTest < ActiveSupport::TestCase
   test 'should return all destinations' do
     assert_equal 3, @all_destinations.count
   end
+
+  test 'should delete all routes dependent' do
+    count = Route.count
+    City.first.destroy
+
+    assert_not_equal count, Route.count
+  end
+
+  test 'should create routes when there is an Array of object into routes attribute' do
+    city = City.new(name: 'foo', routes: [
+      { to: 'bar', distance: 1 },
+      { to: 'baz', distance: 2 }
+    ])
+
+    city.save
+
+    assert_equal 2, city.destinations.count
+  end
+
+  test 'should update routes when there is an Array of object into routes attribute' do
+    city = City.find(1)
+    city.update_attributes({routes: [
+      { to: 'bar', distance: 99 },
+    ]})
+
+    assert_equal 'Bar', city.destinations.first.to.name
+    assert_equal 99, city.destinations.first.distance
+  end
+
+  test 'should capitalize name' do
+    city = City.create(name: 'foo')
+    assert_equal 'Foo', city.name
+  end
 end

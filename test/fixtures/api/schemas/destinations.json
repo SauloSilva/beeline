@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "required" : [
+    "destinations"
+  ],
+  "properties" : {
+    "destinations" : { "type" : "Array" }
+  }
+}

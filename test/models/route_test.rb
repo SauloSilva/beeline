@@ -32,9 +32,20 @@ class RouteTest < ActiveSupport::TestCase
   end
 
   test 'should return Hash on shortest_path method' do
-    shortest_path = Route.shortest_path('A', 'C')
+    shortest_path = Route.shortest_path('A', 'C', 1, 1)
     assert_kind_of Hash, shortest_path
     assert_kind_of Array, shortest_path[:nodes]
     assert_kind_of Fixnum, shortest_path[:distance]
+    assert_kind_of Float, shortest_path[:price]
+  end
+
+  test 'should not save Route with from_id and to_id already existing' do
+    route = Route.new Route.first.attributes
+    assert_not route.save
+  end
+
+  test 'should create City and save Route when name city to inserted in to' do
+    Route.create(from_id: 1, to: 'bar', distance: 1)
+    assert City.where(name: 'Bar').exists?
   end
 end
