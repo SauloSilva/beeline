@@ -115,8 +115,8 @@ Todos erros gerados por alguma requisição `POST`, `PUT` ou `DELETE`, estará n
         {
           "name": "A",
           "routes": [
-            { to: "B", distance: 10 },
-            { to: "C", distance: 20 }
+            { "to": "B", "distance": 10 },
+            { "to": "C", "distance": 20 }
           ],
           "map_name": "SP"
         }
@@ -153,8 +153,8 @@ Todos erros gerados por alguma requisição `POST`, `PUT` ou `DELETE`, estará n
     {
       "name": "A",
       "routes": [
-        { to: "B", distance: 10 },
-        { to: "C", distance: 20 }
+        { "to": "B", "distance": 10 },
+        { "to": "C", "distance": 20 }
       ],
       "map_name": "SP"
     }
@@ -170,8 +170,8 @@ Todos erros gerados por alguma requisição `POST`, `PUT` ou `DELETE`, estará n
     {
       "name": "A",
       "routes": [
-        { to: "B", distance: 10 },
-        { to: "C", distance: 20 }
+        { "to": "B", "distance": 10 },
+        { "to": "C", "distance": 20 }
       ],
       "map_name": "SP"
     }
