@@ -19,11 +19,11 @@ class CitiesController < ApplicationController
   end
 
   def destinations
-    render json: City.destinations, root: :destinations
+    render json: City.all_destinations, root: :destinations
   end
 
   private
   def city_params
-    params.require(:city).permit(:name, routes: [:to, :distance])
+    params.require(:city).permit(:name, :map_name, routes: [:to, :distance])
   end
 end

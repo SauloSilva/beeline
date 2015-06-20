@@ -2,7 +2,7 @@ require 'test_helper'
 
 class GraphTest < ActiveSupport::TestCase
   def setup
-    @graph = Graph.new(City.destinations)
+    @graph = Graph.new(City.all_destinations)
     @shortest_paths = @graph.shortest_path('A', 'C')
   end
 

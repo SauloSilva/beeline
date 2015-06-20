@@ -4,6 +4,7 @@ class City < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true, format: { with: /\A[a-zA-Z]+\z/,
     message: "only allows letters" }
 
+  belongs_to :map
   has_many :destinations, foreign_key: :from_id, dependent: :destroy, class_name: :Route do
     def to_format!
       self.map do |route|
@@ -15,7 +16,7 @@ class City < ActiveRecord::Base
   before_save :transform_name
   after_save :routes_save
 
-  def self.destinations
+  def self.all_destinations
     destinations = []
 
     City.all.each do |city|
@@ -25,6 +26,10 @@ class City < ActiveRecord::Base
     end
 
     destinations
+  end
+
+  def map_name=(name)
+    self.map_id = Map.where(name: name).first_or_create.id
   end
 
   private
