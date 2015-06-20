@@ -1,9 +1,13 @@
 {
   "type": "object",
   "required" : [
-    "name"
+    "name",
+    "map_name",
+    "routes"
   ],
   "properties" : {
-    "name" : { "type" : "string" }
+    "name" : { "type" : "string" },
+    "map_name" : { "type" : "string" },
+    "routes" : { "type" : "Array" }
   }
 }

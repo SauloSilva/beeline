@@ -21,7 +21,7 @@ class CitiesControllerTest < ActionController::TestCase
     routes_count = Route.count
     cities_count = City.count
 
-    post :create, { city: { name: 'D', routes: [
+    post :create, { city: { name: 'D', map_name: 'foo', routes: [
       { to: 'F', distance: 2 },
       { to: 'E', distance: 3 }
     ]}}

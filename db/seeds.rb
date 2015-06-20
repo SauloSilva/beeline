@@ -1,9 +1,15 @@
+Map.create([
+  { name: 'SP' },
+  { name: 'RJ' },
+  { name: 'RS' }
+])
+
 City.create([
-  { name: 'A' },
-  { name: 'B' },
-  { name: 'C' },
-  { name: 'D' },
-  { name: 'E' }
+  { name: 'A', map_id: 1 },
+  { name: 'B', map_id: 1 },
+  { name: 'C', map_id: 1 },
+  { name: 'D', map_id: 2 },
+  { name: 'E', map_id: 3 }
 ])
 
 Route.create([

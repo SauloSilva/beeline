@@ -6,4 +6,6 @@ Rails.application.routes.draw do
       get 'destinations' => 'cities#destinations'
     end
   end
+
+  resources :maps
 end

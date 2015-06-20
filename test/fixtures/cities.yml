@@ -1,11 +1,14 @@
 a:
   id: 1
   name: A
+  map_id: 1
 
 b:
   id: 2
   name: B
+  map_id: 1
 
 c:
   id: 3
   name: C
+  map_id: 1

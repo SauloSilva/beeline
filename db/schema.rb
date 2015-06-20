@@ -11,13 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150616214234) do
+ActiveRecord::Schema.define(version: 20150620012716) do
 
   create_table "cities", force: :cascade do |t|
+    t.integer "map_id"
+    t.string  "name",   null: false
+  end
+
+  add_index "cities", ["map_id"], name: "index_cities_on_map_id"
+  add_index "cities", ["name"], name: "index_cities_on_name"
+
+  create_table "maps", force: :cascade do |t|
     t.string "name", null: false
   end
 
-  add_index "cities", ["name"], name: "index_cities_on_name"
+  add_index "maps", ["name"], name: "index_maps_on_name"
 
   create_table "routes", force: :cascade do |t|
     t.integer "to_id",    null: false

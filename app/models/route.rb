@@ -12,7 +12,7 @@ class Route < ActiveRecord::Base
   end
 
   def self.shortest_path(from, to, autonomy, fuel_price)
-    graph = Graph.new(City.destinations)
+    graph = Graph.new(City.all_destinations)
     nodes, distance = graph.shortest_path(from.capitalize, to.capitalize)
 
     fuel_price = if fuel_price.is_a? String

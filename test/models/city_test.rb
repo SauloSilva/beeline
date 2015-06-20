@@ -3,7 +3,7 @@ require 'test_helper'
 class CityTest < ActiveSupport::TestCase
   def setup
     @destinations = City.first.destinations.to_format!
-    @all_destinations = City.destinations
+    @all_destinations = City.all_destinations
   end
 
   test 'should not save city without name' do
@@ -41,6 +41,11 @@ class CityTest < ActiveSupport::TestCase
     City.first.destroy
 
     assert_not_equal count, Route.count
+  end
+
+  test 'should create map when have map_name' do
+    city = City.new(name: 'foo', map_name: 'bar')
+    assert_equal 'BAR', city.map.name
   end
 
   test 'should create routes when there is an Array of object into routes attribute' do
