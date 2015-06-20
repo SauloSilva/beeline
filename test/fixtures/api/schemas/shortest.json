@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "required" : [
+    "distance",
+    "nodes",
+    "price"
+  ],
+  "properties" : {
+    "distance" : { "type" : "integer" },
+    "nodes" : { "type" : "Array" },
+    "price" : { "type" : "Float" }
+  }
+}

@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150616214234) do
 
   add_index "cities", ["name"], name: "index_cities_on_name"
 
-  create_table "routes", id: false, force: :cascade do |t|
+  create_table "routes", force: :cascade do |t|
     t.integer "to_id",    null: false
     t.integer "from_id",  null: false
     t.integer "distance", null: false
